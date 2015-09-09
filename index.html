@@ -22,12 +22,18 @@
     myApp.controller('myCtrl',
             ['$scope', 'myFactory','myService','User',
                 function ($scope, myFactory,myService,User) {
+
                     myFactory.setName('Jackey');
+
                     var service = new myService('Jackey1');
                     console.log(service.getName());
                     service.setName('Li');
                     console.log(service.getName());
+
+
                     console.log(User.getName());
+                    User.sayHi();
+
                     $scope.info = {
                         myName: myFactory.getName()
                     };

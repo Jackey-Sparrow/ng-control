@@ -125,4 +125,43 @@
     //               _getName(private)
     //什么时候用provider: 如果在应用开始前要对服务进行配置，那就使用provider
 
+
+    /**
+     * constant
+     * constant常用于注入到配置函数中去
+     *
+     */
+    serviceModule.constant('myConstant', {
+        pageSize: 10,
+        firstTitle: 'first page'
+    });
+
+    //myApp.config(function (myConstant) {
+    //    //可注入
+    //});
+
+    /**
+     *
+     */
+    serviceModule.value('appKey', '1234');
+
+    //myApp.config(function (appKey) {
+    //    //value不可注入到配置文件中
+    //});
+
+
+    /**
+     * decorator
+     * 可以给服务(constant除外)添加额外的方法
+     */
+    serviceModule.config(function ($provide) {
+        $provide.decorator('User', function ($delegate) {
+            $delegate.sayHi = function () {
+                console.log('hello');
+            };
+
+            return $delegate;
+        });
+    });
+
 })(angular);
