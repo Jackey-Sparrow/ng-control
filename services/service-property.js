@@ -75,5 +75,54 @@
         return Person;
     }]);
 
+    /**
+     * User Provider
+     *
+     * 可以在config里面配置整个系统需要的服务
+     */
+    serviceModule.provider('User', [function () {
+        //closure
+        var name;
+
+        /**
+         * private function
+         * @param data
+         * @private
+         */
+        this._setName = function (data) {
+            name = data;
+        };
+
+        /**
+         * private function
+         * @returns {*}
+         * @private
+         */
+        this._getName = function () {
+            return name;
+        };
+
+        /**
+         * return factory
+         * @returns {{setName: (Function|*), getName: (Function|*)}}
+         */
+        this.$get = function () {
+            return {
+                setName: this._setName,
+                getName: this._getName
+            };
+        }
+    }]);
+
+    //myApp.config(function (UserProvider) {
+    //    console.log(UserProvider);
+    //    UserProvider._setName('hhhh');
+    //});
+    //UserProvider： $get:(相当于一个factory)
+    //                    Closure:name
+    //                    $inject
+    //               _setName(private)
+    //               _getName(private)
+    //什么时候用provider: 如果在应用开始前要对服务进行配置，那就使用provider
 
 })(angular);

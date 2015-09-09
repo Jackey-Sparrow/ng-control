@@ -13,14 +13,21 @@
 <script>
 
     var myApp = angular.module('myApp', ['myApp.directive', 'myApp.service']);
+
+   myApp.config(function (UserProvider) {
+       console.log(UserProvider);
+       UserProvider._setName('hhhh');
+   });
+
     myApp.controller('myCtrl',
-            ['$scope', 'myFactory','myService',
-                function ($scope, myFactory,myService) {
+            ['$scope', 'myFactory','myService','User',
+                function ($scope, myFactory,myService,User) {
                     myFactory.setName('Jackey');
                     var service = new myService('Jackey1');
                     console.log(service.getName());
                     service.setName('Li');
                     console.log(service.getName());
+                    console.log(User.getName());
                     $scope.info = {
                         myName: myFactory.getName()
                     };
