@@ -118,6 +118,7 @@
     //    console.log(UserProvider);
     //    UserProvider._setName('hhhh');
     //});
+
     //UserProvider： $get:(相当于一个factory)
     //                    Closure:name
     //                    $inject
@@ -125,11 +126,14 @@
     //               _getName(private)
     //什么时候用provider: 如果在应用开始前要对服务进行配置，那就使用provider
 
+    //User
+    //    getName
+    //    setName
 
     /**
      * constant
      * constant常用于注入到配置函数中去
-     *
+     * constant不可修改
      */
     serviceModule.constant('myConstant', {
         pageSize: 10,
@@ -141,7 +145,8 @@
     //});
 
     /**
-     *
+     * value
+     * value可修改
      */
     serviceModule.value('appKey', '1234');
 
