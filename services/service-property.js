@@ -4,12 +4,21 @@
 (function (angular) {
     'use strict';
 
+    /**
+     * factory()
+     * service()
+     * constant()
+     * value()
+     * provider()
+     *
+     * @type {module}
+     */
     var serviceModule = angular.module('myApp.service', []);
 
     /**
-     * Service µ¥Àı£¬´æÔÚÓÚÕû¸öÉúÃüÖÜÆÚ
+     * Factory å•ä¾‹ï¼Œå­˜åœ¨äºæ•´ä¸ªç”Ÿå‘½å‘¨æœŸ
      */
-    serviceModule.factory('myService', [function () {
+    serviceModule.factory('myFactory', [function () {
         var service = {},
             name = '';
 
@@ -30,6 +39,40 @@
         };
 
         return service;
+    }]);
+
+    /**
+     * Service å¯ä»¥æ³¨å†Œä¸€ä¸ªæ”¯æŒæ„é€ å‡½æ•°çš„æœåŠ¡
+     * å’ŒFactoryä¸åŒä¹‹å¤„æ˜¯Serviceéœ€è¦newå®ä¾‹åŒ–æœåŠ¡å¯¹è±¡
+     */
+    serviceModule.service('myService', [function () {
+
+        /**
+         * Person function
+         * @param name
+         * @constructor
+         */
+        var Person = function (name) {
+            this.name = name || 'Jackey';
+        };
+
+        /**
+         * get name
+         * @returns {*|string}
+         */
+        Person.prototype.getName = function () {
+            return this.name;
+        }
+
+        /**
+         * set name
+         * @param data
+         */
+        Person.prototype.setName = function (data) {
+            this.name = data;
+        }
+
+        return Person;
     }]);
 
 

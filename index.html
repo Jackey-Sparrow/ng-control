@@ -14,11 +14,15 @@
 
     var myApp = angular.module('myApp', ['myApp.directive', 'myApp.service']);
     myApp.controller('myCtrl',
-            ['$scope', 'myService',
-                function ($scope, myService) {
-                    myService.setName('Jackey');
+            ['$scope', 'myFactory','myService',
+                function ($scope, myFactory,myService) {
+                    myFactory.setName('Jackey');
+                    var service = new myService('Jackey1');
+                    console.log(service.getName());
+                    service.setName('Li');
+                    console.log(service.getName());
                     $scope.info = {
-                        myName: myService.getName()
+                        myName: myFactory.getName()
                     };
                 }]);
 </script>
