@@ -5,17 +5,21 @@
     <title></title>
     <script src="angular.js"></script>
     <script src="directives/direvtice-property.js"></script>
+    <script src="services/service-property.js"></script>
 </head>
 <body data-ng-controller="myCtrl">
 <div alert ggg="kkk">alert</div>
 </body>
 <script>
 
-    var myApp = angular.module('myApp', ['directiveDemo']);
-    myApp.controller('myCtrl', ['$scope', function ($scope) {
-        $scope.info = {
-            myName: 'Jackey'
-        };
-    }]);
+    var myApp = angular.module('myApp', ['myApp.directive', 'myApp.service']);
+    myApp.controller('myCtrl',
+            ['$scope', 'myService',
+                function ($scope, myService) {
+                    myService.setName('Jackey');
+                    $scope.info = {
+                        myName: myService.getName()
+                    };
+                }]);
 </script>
 </html>

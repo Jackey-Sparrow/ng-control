@@ -8,7 +8,7 @@
      * directive package
      * @type {module}
      */
-    angular.module('directiveDemo', [])
+    angular.module('myApp.directive', [])
 
         .constant('alertConfig', {
             xxx: true
