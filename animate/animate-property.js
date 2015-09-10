@@ -6,5 +6,5 @@
 
     angular.module('myApp.animate',[]);
 
-    
+
 })(angular);

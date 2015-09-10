@@ -1,0 +1,41 @@
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOutLeft {
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.page {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: green;
+}
+
+.ng-enter {
+    animation: scaleInUp 0.5s both ease-in;
+    -webkit-animation: scaleInUp 0.5s both ease-in;
+    z-index: 8888;
+}
+
+.ng-leave {
+    animation: slideOutLeft 0.5s both ease-in;
+    -webkit-animation: slideOutLeft 0.5s both ease-in;
+    z-index: 9999;
+}
+
+.page1{
+    width: 100px;
+    height: 100px;
+    background-color: white;
+}

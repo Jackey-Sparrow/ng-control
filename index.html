@@ -3,25 +3,37 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <script src="angular.js"></script>
+    <link href="content/css/animate.css" rel="stylesheet"/>
+    <script src="Angular.js"></script>
+    <script src="angular-animate.js"></script>
     <script src="directives/direvtice-property.js"></script>
     <script src="services/service-property.js"></script>
 </head>
 <body data-ng-controller="myCtrl">
 <div alert ggg="kkk">alert</div>
+
+<div class="page">
+    <div class="page1" ng-if="showPage"></div>
+</div>
+<button data-ng-click="hidePage()">hide</button>
 </body>
 <script>
 
-    var myApp = angular.module('myApp', ['myApp.directive', 'myApp.service']);
+    var myApp = angular.module('myApp', ['ngAnimate', 'myApp.directive', 'myApp.service']);
 
-   myApp.config(function (UserProvider) {
-       console.log(UserProvider);
-       UserProvider._setName('hhhh');
-   });
+    myApp.config(function (UserProvider) {
+        console.log(UserProvider);
+        UserProvider._setName('hhhh');
+    });
 
     myApp.controller('myCtrl',
-            ['$scope', 'myFactory','myService','User',
-                function ($scope, myFactory,myService,User) {
+            ['$scope', 'myFactory', 'myService', 'User',
+                function ($scope, myFactory, myService, User) {
+
+                    $scope.showPage = true;
+                    $scope.hidePage = function () {
+                        $scope.showPage = !$scope.showPage;
+                    };
 
                     myFactory.setName('Jackey');
 
