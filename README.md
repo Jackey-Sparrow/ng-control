@@ -1,6 +1,16 @@
 # ng-basic
 
 # angular in IE
+-angularJs1.2 support ie8
+-angularJs1.3 not support ie8
+-在连接处将id="ng-app"添加到根元素，使用ng-app属性
+```
+<!doctype html>
+  <html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="myApp">
+    ...
+  </html>
+
+```
 
 # how to reduce watchers
 - use {{::xx}} instead of ng-bind in one-way binding, ng-bind has one watcher than {{:;xx}}
