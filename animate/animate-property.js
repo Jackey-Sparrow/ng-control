@@ -44,7 +44,7 @@
                 enter: function (element, doneFn) {
                     var height = element[0].offsetHeight;
                     return $animateCss(element, {
-                        addClass: 'test',
+                        addClass: 'pulse-twice',
                         easing: 'ease-out',
                         from: {height: '0px'},
                         to: {height: height + 'px'},

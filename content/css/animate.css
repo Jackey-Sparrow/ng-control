@@ -42,3 +42,26 @@
     -webkit-animation: slideOutLeft 0.5s both ease-in;
     z-index: 9999;
 }
+
+.pulse-twice {
+    animation: 0.5s pulse linear 2;
+    -webkit-animation: 0.5s pulse linear 2;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(0.5);
+    }
+    to {
+        transform: scale(1.5);
+    }
+}
+
+@-webkit-keyframes pulse {
+    from {
+        -webkit-transform: scale(0.5);
+    }
+    to {
+        -webkit-transform: scale(1.5);
+    }
+}
