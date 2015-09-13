@@ -37,7 +37,22 @@
                 removeClass: function (element, className, done) {
                 }
             };
-        });
+        })
+
+        .animation('.fold-animate', ['$animateCss', function ($animateCss) {
+            return {
+                enter: function (element, doneFn) {
+                    var height = element[0].offsetHeight;
+                    return $animateCss(element, {
+                        addClass: 'test',
+                        easing: 'ease-out',
+                        from: {height: '0px'},
+                        to: {height: height + 'px'},
+                        duration: 1
+                    });
+                }
+            }
+        }]);
 
 
 })(angular);

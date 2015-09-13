@@ -8,18 +8,33 @@
     <script src="angular-animate.js"></script>
     <script src="directives/direvtice-property.js"></script>
     <script src="services/service-property.js"></script>
+    <script src="animate/animate-property.js"></script>
 </head>
 <body data-ng-controller="myCtrl">
 <div alert ggg="kkk">alert</div>
 
 <div class="page" ng-if="showPage">
-
+using ng-if directive and ng-enter css
 </div>
 <button data-ng-click="hidePage()">hide</button>
+
+<div data-ng-if="onOff" class="fold-animate">
+    using $animateCss<br/>
+    adsafdsfsdafasdfsadfsdaf<br/>
+    aasdfsdafsdafsdafsadfsdfsadf
+    this element will go boom<br/>
+    adsafdsfsdafasdfsadfsdaf<br/>
+    aasdfsdafsdafsdafsadfsdfsadf
+    this element will go boom<br/>
+    adsafdsfsdafasdfsadfsdaf<br/>
+    aasdfsdafsdafsdafsadfsdfsadf
+</div>
+<button data-ng-click="onOff=true">Fold in</button>
+
 </body>
 <script>
 
-    var myApp = angular.module('myApp', ['ngAnimate', 'myApp.directive', 'myApp.service']);
+    var myApp = angular.module('myApp', ['ngAnimate', 'myApp.directive', 'myApp.service', 'myApp.animate']);
 
     myApp.config(function (UserProvider) {
         console.log(UserProvider);
