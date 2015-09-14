@@ -65,3 +65,35 @@
         -webkit-transform: scale(1.5);
     }
 }
+
+@keyframes test {
+    0% {
+        background-color: black;
+    }
+
+    20% {
+        background-color: yellow;
+    }
+
+    40% {
+        background-color: antiquewhite;
+    }
+
+    60% {
+        background-color: blue;
+    }
+
+    80% {
+        background-color: chartreuse;
+    }
+    100% {
+        background-color: black;
+    }
+}
+
+.test {
+    animation: test 3s;
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+}
