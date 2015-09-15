@@ -35,4 +35,10 @@
     //@example
     //2 {{ expression | filter1 | filter2 | ... }}
     //<div>{{info.myName | filterProperty | filterProperty1:' hello':' world'}}</div>
+
+    /**
+     * $parsers
+     *
+     * $formatters
+     */
 })(angular);
