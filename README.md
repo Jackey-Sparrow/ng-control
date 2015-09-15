@@ -60,6 +60,27 @@ js```
 });
 
 ```
+##$interpolate
+
+使用：在emailBody里面属于{{toWho}},会在previewText得到toWho的值
+
+html```
+<input ng-model="toWho">
+<textarea ng-model="emailBody"></textarea>
+<pre>{{previewText}}</pre>
+```
+
+js```
+ $scope.$watch('emailBody', function (body) {
+    if (body) {
+        var template = $interpolate(body);
+        $scope.previewText = template({toWho: $scope.toWho});
+    }
+});
+
+```
+
+
 ##$eval
 ##$evalAsync()
 ##attrs.$observe
