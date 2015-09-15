@@ -9,6 +9,7 @@
     <script src="directives/direvtice-property.js"></script>
     <script src="services/service-property.js"></script>
     <script src="animate/animate-property.js"></script>
+    <script src="filters/filter-property.js"></script>
 </head>
 <body data-ng-controller="myCtrl">
 <div alert ggg="kkk">alert</div>
@@ -40,10 +41,12 @@
 <input ng-model="toWho">
 <textarea ng-model="emailBody"></textarea>
 <pre>{{previewText}}</pre>
+
+<div>{{info.myName | filterProperty | filterProperty1:' hello':' world'}}</div>
 </body>
 <script>
 
-    var myApp = angular.module('myApp', ['ngAnimate', 'myApp.directive', 'myApp.service', 'myApp.animate']);
+    var myApp = angular.module('myApp', ['ngAnimate', 'myApp.directive', 'myApp.service', 'myApp.animate', 'myApp.filters']);
 
     myApp.config(function (UserProvider) {
         console.log(UserProvider);
@@ -53,6 +56,7 @@
     myApp.controller('myCtrl',
             ['$scope', 'myFactory', 'myService', 'User', '$parse', '$interpolate',
                 function ($scope, myFactory, myService, User, $parse, $interpolate) {
+
 
                     $scope.showPage = true;
                     $scope.hidePage = function () {
