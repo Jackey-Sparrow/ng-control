@@ -44,6 +44,22 @@ var phase = this.$root.$$phase;
 ```
 
 ##$parse(expression)
+
+html```
+
+<input ng-model="expressionTest" placeholder="enter an expression"/>
+{{expressionResult}}
+```
+
+js```
+ $scope.$watch('expressionTest', function (newVal, oldVal, scope) {
+    if (newVal !== oldVal) {
+        var parseFn = $parse(newVal);
+        $scope.expressionResult = parseFn(scope);
+    }
+});
+
+```
 ##$eval
 ##$evalAsync()
 ##attrs.$observe
