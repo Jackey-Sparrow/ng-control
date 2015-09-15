@@ -65,6 +65,15 @@ var phase = this.$root.$$phase;
 
 ##$interpolate
 
+```
+$interpolate(text, [mustHaveExpression], [trustedContext], [allOrNothing])
+test: 需要编译的字符串
+mustHaveExpression：如果这个参数的值被设置为true,那么上面的text中必须含有嵌入其中的表达式，不然将会返回null,而不是我们预期的interpolation function
+trustedContext[string] 如果提供了这个参数值，那么在返回相应的函数之前，将会使用$sce.getTrusted(interpolatedResult, trustedContext)对返回的结果做处理。
+allOrNothing[boolean] 如果这个参数的值被设置为true，那么只有text中所有嵌入的表达式没有一个被转换为undefined的时候才会返回我们期望的函数。
+
+```
+
 使用：在emailBody里面属于{{toWho}},会在previewText得到toWho的值
 
 ```
