@@ -15,6 +15,14 @@
 
 ```
 
+# seo in Angular
+web爬虫对于javascript富文本客户端应用无能为力，为了让应用的运行过程中给爬虫提供支持，
+我们需要在头部添加meta标签。
+这个元标记会让爬虫请求一个带有空的转义片段参数的连接，服务器根据请求返回对应的html代码片段
+```
+<meta name='fragment' content='!'/>
+```
+
 # how to reduce watchers
 - use {{::xx}} instead of ng-bind in one-way binding, ng-bind has one watcher than {{:;xx}}
 - use expression in the below situation
