@@ -85,5 +85,6 @@ ng-if和ng-show（隐藏dom）的区别是真正生成或移除节点
 ## ng-submit
 
 ## ng-class
+<div ng-class='{'red':x > 5}'></div>
 
 ## ng-attr-(suffix)
