@@ -37,6 +37,12 @@
 ```
 
 ## ng-repeat
+$index
+$first
+$middle
+$last
+$even
+$odd
 
 ## ng-view
 
@@ -44,3 +50,40 @@
 
 ## ng-if
 ng-if和ng-show（隐藏dom）的区别是真正生成或移除节点
+
+## {{}}
+
+## ng-bind
+
+## ng-cloak
+使用ng-bind会出现喧嚷元素的闪烁，可使用这个来消除
+
+## ng-bind-template
+
+## ng-model
+
+## ng-show
+
+## ng-hide
+
+## ng-change
+
+## ng-form
+
+```
+<form name='signUpForm' ng-submit='submit()' novalidate>
+
+<botton type='submit' ng-disabled='signUpForm.$invalid'>Submit</botton>
+</form>
+```
+
+## ng-click
+
+## ng-select
+<select ng-model="city" ng-options="city.name for city in cities"></select>
+
+## ng-submit
+
+## ng-class
+
+## ng-attr-(suffix)
