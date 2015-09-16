@@ -105,3 +105,47 @@ allOrNothing[boolean] 如果这个参数的值被设置为true，那么只有tex
 ##$eval
 ##$evalAsync()
 ##attrs.$observe
+
+## injector
+
+```
+var myModule = angular.module('myModule', []);
+myModule.service('myService', function() {
+			this.my = 0;
+});
+
+var herModule = angular.module('herModule', []);
+herModule.service('herService', function() {
+			this.her = 1;
+});
+
+var injector = angular.injector(["myModule","herModule"]);
+alert(injector.get("myService").my);
+alert(injector.get("herService").her);
+
+```
+
+angular中三种声明依赖的方式
+
+```
+// 创建myModule模块、注册服务
+var myModule = angular.module('myModule', []);
+myModule.service('myService', function() {
+			this.my = 0;
+});
+
+// 获取injector
+var injector = angular.injector(["myModule"]);
+
+//inference(推荐)
+injector.invoke(function(myService){alert(myService.my);});
+
+//annotation
+function explicit(serviceA) {alert(serviceA.my);};
+explicit.$inject = ['myService'];
+injector.invoke(explicit);
+
+//inline
+injector.invoke(['myService', function(serviceA){alert(serviceA.my);}]);
+
+```
