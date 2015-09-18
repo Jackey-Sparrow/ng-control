@@ -149,3 +149,4 @@ injector.invoke(explicit);
 injector.invoke(['myService', function(serviceA){alert(serviceA.my);}]);
 
 ```
+##跨域 CORS cross origin resources sharing 
