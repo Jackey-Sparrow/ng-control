@@ -6,7 +6,7 @@
 
     angular.module('myApp.httpModule', [])
         .config(function ($httpProvider) {
-            var interceptor = function ($q, $rootScope/*, Auth*/) {
+            var interceptor = function ($q, $rootScope, $window/*, Auth*/) {
                 return {
                     'response': function (response) {
                         if (response.config.url === '/api/login') {
@@ -16,9 +16,9 @@
                         return response;
                     },
                     'responseError': function (rejection) {
-                        switch (rejection.status){
+                        switch (rejection.status) {
                             case 401:
-                                if(rejection.config.url !=='api/login'){
+                                if (rejection.config.url !== 'api/login') {
                                     $rootScope.$broadcast('auth:loginRequired');
                                 }
                                 break;
@@ -33,10 +33,14 @@
                                 break;
                         }
                         return $q.reject(rejection);
+                    },
+                    'request': function (config) {
+                        config.headers = config.headers || {};
+                        if ($window.sessionStorage.token) {
+                            config.headers.Authorization = 'Bearer ' + $window.sessionStorage.token;
+                        }
+                        return config;
                     }
-                    //'request': function () {
-                    //
-                    //},
                     //'requestError': function () {
                     //
                     //}
