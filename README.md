@@ -174,3 +174,5 @@ angular.module('myApp',[])
 2服务器端COR支持
 
 - Access-Control-Allow-Origin
+
+# $cacheFactory
