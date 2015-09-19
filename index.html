@@ -10,6 +10,7 @@
     <script src="services/service-property.js"></script>
     <script src="animate/animate-property.js"></script>
     <script src="filters/filter-property.js"></script>
+    <script src="http/http-property.js"></script>
 </head>
 <body data-ng-controller="myCtrl">
 <div alert ggg="kkk">alert</div>
@@ -46,7 +47,7 @@
 </body>
 <script>
 
-    var myApp = angular.module('myApp', ['ngAnimate', 'myApp.directive', 'myApp.service', 'myApp.animate', 'myApp.filters']);
+    var myApp = angular.module('myApp', ['ngAnimate', 'myApp.httpModule', 'myApp.directive', 'myApp.service', 'myApp.animate', 'myApp.filters']);
 
     myApp.config(function (UserProvider) {
         console.log(UserProvider);

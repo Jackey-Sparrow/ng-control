@@ -150,3 +150,27 @@ injector.invoke(['myService', function(serviceA){alert(serviceA.my);}]);
 
 ```
 ##跨域 CORS cross origin resources sharing 
+
+- JSONP
+
+```
+$http.jsonp('http://xxx.com?callback=JSON_CALLBACK').success()function(data){};
+
+```
+
+- CORS
+
+1 可以再config里面设置
+
+```
+angular.module('myApp',[])
+.config(function($httpProvider){
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-with'];
+});
+
+```
+
+2服务器端COR支持
+
+- Access-Control-Allow-Origin
