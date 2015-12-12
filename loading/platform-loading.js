@@ -3,8 +3,8 @@
  */
 (function (angular) {
 	'use strict';
-	
-	angular.module('platform',[]);
+
+
 
 	//todo: height is not right when body's height is too long
 	angular.module('platform').directive('platformLoading',
