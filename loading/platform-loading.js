@@ -4,13 +4,15 @@
 (function (angular) {
 	'use strict';
 
-	//todo: height is not right when body's height is too long
+//	var prefix = 'app/components/';
+	var prefix = '';
+
 	angular.module(globals.appName).directive('platformLoading',
 		[function () {
 			return {
 				restrict: 'EA',
 				replace: true,
-				templateUrl: 'app/components/loading/templates/loading.html',
+				templateUrl: prefix + 'loading/templates/loading.html',
 				link: function (scope) {
 					scope.close = scope.cancel;
 				}
@@ -21,7 +23,7 @@
 		return {
 			restrict: 'AE',
 			replace: true,
-			templateUrl: 'app/components/loading/templates/spinner.html'
+			templateUrl: prefix + 'loading/templates/spinner.html'
 		};
 	}]);
 
@@ -49,4 +51,5 @@
 				 }
 			 };
 		 }]);
+
 })(angular);
