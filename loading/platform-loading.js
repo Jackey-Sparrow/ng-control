@@ -31,6 +31,7 @@
 		['$rootScope', '$compile', '$document',
 		 function ($rootScope, $compile, $document) {
 			 return {
+				 
 				 show: function () {
 
 					 var scope = $rootScope.$new(true);
