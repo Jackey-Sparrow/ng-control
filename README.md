@@ -1,1 +1,1 @@
-tng-control
+ng-control
