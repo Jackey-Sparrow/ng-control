@@ -5,7 +5,7 @@
 	'use strict';
 
 	//todo: height is not right when body's height is too long
-	angular.module('platform').directive('platformLoading',
+	angular.module(globals.appName).directive('platformLoading',
 		[function () {
 			return {
 				restrict: 'EA',
@@ -17,7 +17,7 @@
 			};
 		}]);
 
-	angular.module('platform').directive('platformSpinner', [function () {
+	angular.module(globals.appName).directive('platformSpinner', [function () {
 		return {
 			restrict: 'AE',
 			replace: true,
@@ -25,7 +25,7 @@
 		};
 	}]);
 
-	angular.module('platform').factory('$platformLoading',
+	angular.module(globals.appName).factory('$platformLoading',
 		['$rootScope', '$compile', '$document',
 		 function ($rootScope, $compile, $document) {
 			 return {

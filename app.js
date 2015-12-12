@@ -4,6 +4,8 @@
 (function (angular) {
 	'use strict';
 
-	angular.module('platform', []);
+	angular.module(globals.appName, []);
+
+	angular.bootstrap($document,[globals.appName]);
 
 })(angular);
