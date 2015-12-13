@@ -4,9 +4,6 @@
 (function (angular) {
     'use strict';
 
-//	var prefix = 'app/components/';
-    var prefix = '';
-
     /**
      * @example
      * angular.module(globals.appName).controller('myTestController',
@@ -23,7 +20,7 @@
             return {
                 restrict: 'EA',
                 replace: true,
-                templateUrl: prefix + 'loading/templates/loading.html',
+                templateUrl: 'loading/templates/loading.html',
                 link: function (scope) {
                     scope.close = scope.cancel;
                 }
@@ -34,7 +31,7 @@
         return {
             restrict: 'AE',
             replace: true,
-            templateUrl: prefix + 'loading/templates/spinner.html'
+            templateUrl: 'loading/templates/spinner.html'
         };
     }]);
 

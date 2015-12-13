@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <title>Jackey's ng-control</title>
     <script src="global.js"></script>
-    <link rel="stylesheet" href="loading/loading.css" />
+    <link rel="stylesheet" href="loading/loading.css"/>
+    <link rel="stylesheet" href="scrollToTop/scrollToTop.css"/>
     <script src="lib/angular.js"></script>
     <script src="app.js"></script>
     <script src="loading/platform-loading.js"></script>
+
+    <script src="scrollToTop/platform-browser-detect-service.js"></script>
+    <script src="scrollToTop/platform-scroll-to-top.js"></script>
+
     <script src="test-controller.js"></script>
 </head>
 <body>
 <div data-ng-controller="myTestController">
     <button data-ng-click="openLoading()">loading</button>
 </div>
+<div data-platform-scroll-to-top data-content="TOP"></div>
 </body>
 </html>

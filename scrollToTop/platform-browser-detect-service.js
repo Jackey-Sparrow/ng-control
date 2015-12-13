@@ -4,7 +4,7 @@
 (function (angular) {
 	'use strict';
 
-	angular.module('platform').factory('platformBrowserTeller',
+	angular.module(globals.appName).factory('platformBrowserTeller',
 		[function () {
 			var matched, browser;
 

@@ -4,17 +4,24 @@
 (function (angular) {
     'use strict';
 
+    angular.module(globals.appName).constant('platformScrollToTopConfig', {
+        textColor: '#ffffff',
+        bgColor: '#404048'
+    });
+
     angular.module(globals.appName).directive('platformScrollToTop',
-        ['platformBrowserTeller',
-            function (platformBrowserTeller) {
+        ['platformBrowserTeller', 'platformScrollToTopConfig',
+            function (platformBrowserTeller, config) {
                 return {
                     restrict: 'EA',
                     scope: {
                         content: '@'
                     },
+                    replace:true,
                     template: '<div class="scrollToTop">{{::content}}</div>',
                     link: function (scope, element) {
-
+                        element.css('background-color', config.bgColor);
+                        element.css('color', config.textColor);
                         element.bind('click', function () {
 
                             if (platformBrowserTeller && (platformBrowserTeller.mozilla || platformBrowserTeller.msie)) {

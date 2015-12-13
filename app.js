@@ -6,6 +6,4 @@
 
 	angular.module(globals.appName, []);
 
-	//angular.bootstrap(document, [globalsxx.appName]);
-
 })(angular);
