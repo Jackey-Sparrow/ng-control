@@ -17,9 +17,12 @@
                     scope: {
                         content: '@'
                     },
-                    replace:true,
+                    replace: true,
                     template: '<div class="scrollToTop">{{::content}}</div>',
                     link: function (scope, element) {
+
+                        scope.content = scope.content || 'TOP';
+
                         element.css('background-color', config.bgColor);
                         element.css('color', config.textColor);
                         element.bind('click', function () {
