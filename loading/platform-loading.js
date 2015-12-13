@@ -7,6 +7,17 @@
 //	var prefix = 'app/components/';
     var prefix = '';
 
+    /**
+     * @example
+     * angular.module(globals.appName).controller('myTestController',
+     * ['$scope', '$platformLoading',
+     * function ($scope, $platformLoading) {
+	 *		 $scope.openLoading = function () {
+	 *			 $platformLoading.show();
+	 *		 };
+	 *	 }]);
+     * @example
+     */
     angular.module(globals.appName).directive('platformLoading',
         [function () {
             return {
