@@ -9,6 +9,9 @@
         bgColor: '#404048'
     });
 
+    /**
+     * 
+     */
     angular.module(globals.appName).directive('platformScrollToTop',
         ['platformBrowserTeller', 'platformScrollToTopConfig',
             function (platformBrowserTeller, config) {
