@@ -10,7 +10,7 @@
     });
 
     /**
-     * 
+     *
      */
     angular.module(globals.appName).directive('platformScrollToTop',
         ['platformBrowserTeller', 'platformScrollToTopConfig',

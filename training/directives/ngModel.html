@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/jquery-2.1.0.js"></script>
+    <script src="lib/angular.js"></script>
+</head>
+<body>
+<div data-ng-controller="myTest">
+    <input data-my-input data-ng-model="myName" data-uom="uom"/>
+    <button data-ng-click="test()">test</button>
+</div>
+</body>
+<script>
+    var myApp = angular.module('myApp', []);
+    myApp.controller('myTest', ['$scope', function ($scope) {
+        $scope.myName = 1000;
+
+        $scope.test = function () {
+            console.log($scope.myName);
+        }
+    }]);
+    myApp.directive('myInput', [function () {
+        return {
+            restrict: 'EA',
+            require: 'ngModel',
+            link: function ($scope, elem, attrs, ngModel) {
+
+                var uom = attrs.uom;
+                var inFocus = false;
+
+                $(elem).focus(function () {
+                    inFocus = true;
+                    ngModel.$setViewValue(addUomToView(ngModel.$modelValue));//赋值给$viewValue
+                    ngModel.$render();//把$viewValue赋值到dom上
+                });
+
+                $(elem).blur(function () {
+                    inFocus = false;
+                    ngModel.$setViewValue(addUomToView(ngModel.$modelValue));
+                    ngModel.$render();
+                });
+
+
+                //第一次加载进来的时候，会触发 $formatters
+                // format不会改变原本值
+                ngModel.$formatters.unshift(function (modelValue) {
+                    console.log('$formatters:' + modelValue);
+                    return addUomToView(modelValue);
+                });
+
+                function addUomToView(value) {
+                    if (inFocus) {
+                        return value;
+                    }
+                    return value + ' ' + uom;
+                }
+
+                //给$modelValue赋值
+                //第一次加载进来的时候，不会触发 $parsers
+                //viewValue发生变化时，会触发
+                //修改viewValue时，不会出发$formatters
+                ngModel.$parsers.push(function (viewValue) {
+                    console.log('$parsers:' + viewValue);
+
+                    return parseInt(viewValue.toString().replace(uom, ''));//保持$viewValue和$modalValued的不同步
+                    //return viewValue;
+                });
+
+                $scope.$on('$destroy', function () {
+                   $(elem).unbind('focus');
+                   $(elem).unbind('blur');
+                });
+            }
+        };
+    }]);
+</script>
+</html>
